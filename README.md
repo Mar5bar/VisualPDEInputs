@@ -13,7 +13,8 @@ Include ``vpde-sliders.js`` or ``vpde-sliders.min.js`` in your HTML.
 This defines a new ``vpde-slider`` HTML element that posts messages to VisualPDE simulations running in iframes.
 
 Sliders can then be created and configured with simple syntax.
-```<vpde-slider
+```
+    <vpde-slider
       iframe="myIframe"
       name="a"
       label="$a$:"
