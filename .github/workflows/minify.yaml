@@ -21,6 +21,4 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: vpde-sliders.min.js
-          message: "Minify vpde-sliders.min.js"
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+          message: "Minify vpde-sliders.js"
