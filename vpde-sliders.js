@@ -2,8 +2,10 @@ class VPDESlider extends HTMLElement {
   constructor() {
     super();
 
-    // Get the associated iframe, and create a message template to send to it.
-    this.attachedFrame = document.getElementById(this.getAttribute("iframe"));
+    // Get the associated iframe(s), and create a message template to send to it.
+    this.attachedFrames = this.getAttribute("iframe")
+      .split(" ")
+      .map((frame) => document.getElementById(frame));
     this.message = { name: this.getAttribute("name") };
 
     // Create a slider and a name tag in a span.
@@ -30,7 +32,9 @@ class VPDESlider extends HTMLElement {
     this.slider = slider;
 
     // Add an event listener to the iframe so that it gets sent the current value when loaded.
-    this.attachedFrame.addEventListener("load", this.sendUpdate.bind(this));
+    this.attachedFrames.forEach((frame) => {
+      frame.addEventListener("load", this.sendUpdate.bind(this));
+    });
 
     this.append(wrapper);
 
@@ -48,10 +52,9 @@ class VPDESlider extends HTMLElement {
   // Send an update to the associated simulation.
   sendUpdate() {
     this.message.value = this.slider.value;
-    this.attachedFrame.contentWindow.postMessage(
-      this.message,
-      "https://visualpde.com"
-    );
+    this.attachedFrames.forEach((frame) => {
+      frame.contentWindow.postMessage(this.message, "https://visualpde.com");
+    });
   }
 }
 
