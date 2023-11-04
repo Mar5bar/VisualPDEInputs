@@ -14,15 +14,15 @@ This defines a new ``vpde-slider`` HTML element that posts messages to VisualPDE
 
 Sliders can then be created and configured with simple syntax.
 ```
-    <vpde-slider
-      iframe="myIframe"
-      name="a"
-      label="$a$:"
-      min="0"
-      max="1"
-      value="0.5"
-      step="0.01"
-    ></vpde-slider>
+<vpde-slider
+    iframe="myIframe"
+    name="a"
+    label="$a$:"
+    min="0"
+    max="1"
+    value="0.5"
+    step="0.01"
+></vpde-slider>
 ``` 
 
 Sample (customisable) styles can be included via ``vpde-sliders.css``.
