@@ -30,7 +30,7 @@
 
       iframe {
         border: none;
-        height: 400px;
+        height: 50%;
         width: 100%;
       }
 
@@ -71,9 +71,11 @@
       id="myIframe"
       src="https://visualpde.com/sim/?logo_only&options=N4IgRgpiBcBmCGAbAzhANOATjEAGAdLgKwgYDGYMALpgK7ogAmAqszrqUwGpfueMB1AXwyNkOAIycybaCHicA1jngACALyqCRXKoCWAO1WqA2rjSqJAXQDcYDVvw79R0+cu3OByZwD2AN2o6BgCAURgCXFwJDF8AMRwACgAPAFp4AEoAKkSAT1SwDM4ABxwAYVpkKl8AW05MWRBaHPhU2iKMTF45Dk7hHs5kUp7CKQxkAEcg+gxA6BNQeExMXwB3Mt9EX1psaAA2IiIAZiIMJZXVgBEIA2Q9KlyIpzPltYAZG4BzKgALAFl4MkfC8LgBlMhIKByeC0aqcc5rAAaODeAH1kgB6ABMqlSqiBILWAE0UajctjcapHmdYb5QRAqBstjsAErwAyfKEIFAMCE1CCYeAAFR+DIU0CO5hAfIF8AACj89DBJeR4PzBQAtXy1J4ADnIm22mBq8GGICoOzAvmkhstS2mvN8BmqO3EcCQqANzqNTKNES9LswoWKdy23mgkRi0qdgYAcrQ6tBTtLKtUaqCdggyFyPQwIDUrcg3dzPSB84XkABBAt6G5UJ7J8u+IuXPSwWCVKEEPYYJtFhVK6ASJwAdlw+rLBebyFBioMjyHUr7M5q2t+BggRaeWN7U6LoOKEDItEQ9oj+B3k4rIrFTxHuqIABYMLBEHpiofGL6dibhiWGG+G4CHojC-H8J4wFGJrJN+XRIPQkEYDUhiwVw8FdrE-gCqeC40DMIABNh8C5LB-oEVhmA4cGoZOk8URRoRlHEaEyTFLsIApOk2R5AUHTkURuRvIYEDAaB-wQUOGDFFsVBCrkh44NJ7JQOMmbwNmcS0OGeCcL8mAQBAlwABIQHonw-FQ4KQnesxHtUmBxLWiCMDA-4YKsPzwLJvhyjJOCTJgVCJPAWSFF4apQiAUgAL5WO5LlyLQnCrGaAVBSFYXRUAA"
     ></iframe>
-    We can use the following sliders to control the parameters $a$ and $b$ in
-    the simulation, which change the colour and move the black shape around the
-    domain.
+    <p>
+      We can use the following sliders to control the parameters $a$ and $b$ in
+      the simulation, which change the colour and move the black shape around
+      the domain.
+    </p>
 
     <h4>Fully specified slider:</h4>
     A VisualPDE Slider with all options specified:
@@ -111,15 +113,17 @@
     simulations that use the same parameter name.
     <vpde-slider iframe="iframeA iframeB" name="a" label="$a$:"></vpde-slider>
     <vpde-slider iframe="iframeA iframeB" name="b" label="$b$:"></vpde-slider>
-    <iframe
-      style="width: 49%"
-      id="iframeA"
-      src="https://visualpde.com/sim/?logo_only&options=N4IgRgpiBcBmCGAbAzhANOATjEAGAdLgKwgYDGYMALpgK7ogAmAqszrqUwGpfueMB1AXwyNkOAIycybaCHicA1jngACALyqCRXKoCWAO1WqA2rjSqJAXQDcYDVvw79R0+cu3OByZwD2AN2o6BgCAURgCXFwJDF8AMRwACgAPAFp4AEoAKkSAT1SwDM4ABxwAYVpkKl8AW05MWRBaHPhU2iKMTF45Dk7hHs5kUp7CKQxkAEcg+gxA6BNQeExMXwB3Mt9EX1psaAA2IiIAZiIMJZXVgBEIA2Q9KlyIpzPltYAZG4BzKgALAFl4MkfC8LgBlMhIKByeC0aqcc5rAAaODeAH1kgB6ABMqlSqiBILWAE0UajctjcapHmdYb5QRAqBstjsAErwAyfKEIFAMCE1CCYeAAFR+DIU0CO5hAfIF8AACj89DBJeR4PzBQAtXy1J4ADnIm22mBq8GGICoOzAvmkhstS2mvN8BmqO3EcCQqANzqNTKNES9LswoWKdy23mgkRi0qdgYAcrQ6tBTtLKtUaqCdggyFyPQwIDUrcg3dzPSB84XkABBAt6G5UJ7J8u+IuXPSwWCVKEEPYYJtFhVK6ASJwAdlw+rLBebyFBioMjyHUr7M5q2t+BggRaeWN7U6LoOKEDItEQ9oj+B3k4rIrFTxHuqIABYMLBEHpiofGL6dibhiWGG+G4CHojC-H8J4wFGJrJN+XRIPQkEYDUhiwVw8FdrE-gCqeC40DMIABNh8C5LB-oEVhmA4cGoZOk8URRoRlHEaEyTFLsIApOk2R5AUHTkURuRvIYEDAaB-wQUOGDFFsVBCrkh44NJ7JQOMmbwNmcS0OGeCcL8mAQBAlwABIQHonw-FQ4KQnesxHtUmBxLWiCMDA-4YKsPzwLJvhyjJOCTJgVCJPAWSFF4apQiAUgAL5WO5LlyLQnCrGaAVBSFYXRUAA"
-    ></iframe>
-    <iframe
-      style="width: 49%"
-      id="iframeB"
-      src="https://visualpde.com/sim/?logo_only&options=N4IgRgpiBcBmCGAbAzhANOATjEAGAdLgKwgYDGYMALpgK7ogAmAqszrqUwGpfueMB1AXwyNkOAIycybaCHicA1jngACVQF51BIrnUBLAHbqA2rjTqJAXQDcYTap2qjp85dudDkzgHsAbtR0DP4AojAEuLgSGD4AYjgAFAAeALQSANTwAJQAVAkAnmnpYFmcAA44AMK0yFQ+ALacmLIgtHnwKbSlGJi8chw9wv2cyBX9hFIYyACOgfQYAdAmoPCYmD4A7pU+iD602NAAbEREAMxEGKvrGwAiEIbI+lT54fgX8mubADL3AOZUAAsALLwJLeS6fDYAZTISCgcngtDqnCumwAGjgvgB9JIAegATKoUqowRDrgBNTFY-IEomqF6XJE+KEQKjbXb7ABK8EMv3hCBQDFh9QgmHgABUAayFNBTuYQMLRfAAAoA-QwOXkeAisUALR8DVeAA5yDs9ph6vAxiAqPswD5pGa7as5kKfIY6vtxHAkKhTR7zezzeF-Z7MCEyo9dl5oBFogr3WGAHK0RrQd5kGp1epQ-YIMj830MCD1e3Ib0Cv0gEtl5AAQVL+nuVFe7xrPnLN30sFgNXhBEOGHb5dV6ugEjeAHZcCbq6WO8goWrDC9x-Lh4v6gbAYYIOXXvih-Py1CyhBM4gXbH8Ie57XJdLXpOjUQACwYWCIfRlM+MIP7S0xkrBgv13AR9EYQEgVoRAYHjS0kn-XokHoOCMHqIwkK4FD+xiPxRUvVcaHmEB-AI+B8iQkNSPwzBCIjKN3VeSJ4zIuiKJCJIygOEBkiKbI8kKDISl8WjCK+IwIHAyDgRgtCQDKXYqHFfIzxwRSeSgKY83gAtYloGM8E4QFMAgCAbgACQgfRfgBKgYThJ8FnPOpMFiJtEEYGBgIwDYAXgZSfGVJScBmTAqASeAchEjBDG1eEQCkABfKxfK8uRaE4DZrTCiKopEpKgA"
-    ></iframe>
+    <div style="width: 80%; margin: 0 auto">
+      <iframe
+        style="width: 49%"
+        id="iframeA"
+        src="https://visualpde.com/sim/?logo_only&options=N4IgRgpiBcBmCGAbAzhANOATjEAGAdLgKwgYDGYMALpgK7ogAmAqszrqUwGpfueMB1AXwyNkOAIycybaCHicA1jngACALyqCRXKoCWAO1WqA2rjSqJAXQDcYDVvw79R0+cu3OByZwD2AN2o6BgCAURgCXFwJDF8AMRwACgAPAFp4AEoAKkSAT1SwDM4ABxwAYVpkKl8AW05MWRBaHPhU2iKMTF45Dk7hHs5kUp7CKQxkAEcg+gxA6BNQeExMXwB3Mt9EX1psaAA2IiIAZiIMJZXVgBEIA2Q9KlyIpzPltYAZG4BzKgALAFl4MkfC8LgBlMhIKByeC0aqcc5rAAaODeAH1kgB6ABMqlSqiBILWAE0UajctjcapHmdYb5QRAqBstjsAErwAyfKEIFAMCE1CCYeAAFR+DIU0CO5hAfIF8AACj89DBJeR4PzBQAtXy1J4ADnIm22mBq8GGICoOzAvmkhstS2mvN8BmqO3EcCQqANzqNTKNES9LswoWKdy23mgkRi0qdgYAcrQ6tBTtLKtUaqCdggyFyPQwIDUrcg3dzPSB84XkABBAt6G5UJ7J8u+IuXPSwWCVKEEPYYJtFhVK6ASJwAdlw+rLBebyFBioMjyHUr7M5q2t+BggRaeWN7U6LoOKEDItEQ9oj+B3k4rIrFTxHuqIABYMLBEHpiofGL6dibhiWGG+G4CHojC-H8J4wFGJrJN+XRIPQkEYDUhiwVw8FdrE-gCqeC40DMIABNh8C5LB-oEVhmA4cGoZOk8URRoRlHEaEyTFLsIApOk2R5AUHTkURuRvIYEDAaB-wQUOGDFFsVBCrkh44NJ7JQOMmbwNmcS0OGeCcL8mAQBAlwABIQHonw-FQ4KQnesxHtUmBxLWiCMDA-4YKsPzwLJvhyjJOCTJgVCJPAWSFF4apQiAUgAL5WO5LlyLQnCrGaAVBSFYXRUAA"
+      ></iframe>
+      <iframe
+        style="width: 49%"
+        id="iframeB"
+        src="https://visualpde.com/sim/?logo_only&options=N4IgRgpiBcBmCGAbAzhANOATjEAGAdLgKwgYDGYMALpgK7ogAmAqszrqUwGpfueMB1AXwyNkOAIycybaCHicA1jngACVQF51BIrnUBLAHbqA2rjTqJAXQDcYTap2qjp85dudDkzgHsAbtR0DP4AojAEuLgSGD4AYjgAFAAeALQSANTwAJQAVAkAnmnpYFmcAA44AMK0yFQ+ALacmLIgtHnwKbSlGJi8chw9wv2cyBX9hFIYyACOgfQYAdAmoPCYmD4A7pU+iD602NAAbEREAMxEGKvrGwAiEIbI+lT54fgX8mubADL3AOZUAAsALLwJLeS6fDYAZTISCgcngtDqnCumwAGjgvgB9JIAegATKoUqowRDrgBNTFY-IEomqF6XJE+KEQKjbXb7ABK8EMv3hCBQDFh9QgmHgABUAayFNBTuYQMLRfAAAoA-QwOXkeAisUALR8DVeAA5yDs9ph6vAxiAqPswD5pGa7as5kKfIY6vtxHAkKhTR7zezzeF-Z7MCEyo9dl5oBFogr3WGAHK0RrQd5kGp1epQ-YIMj830MCD1e3Ib0Cv0gEtl5AAQVL+nuVFe7xrPnLN30sFgNXhBEOGHb5dV6ugEjeAHZcCbq6WO8goWrDC9x-Lh4v6gbAYYIOXXvih-Py1CyhBM4gXbH8Ie57XJdLXpOjUQACwYWCIfRlM+MIP7S0xkrBgv13AR9EYQEgVoRAYHjS0kn-XokHoOCMHqIwkK4FD+xiPxRUvVcaHmEB-AI+B8iQkNSPwzBCIjKN3VeSJ4zIuiKJCJIygOEBkiKbI8kKDISl8WjCK+IwIHAyDgRgtCQDKXYqHFfIzxwRSeSgKY83gAtYloGM8E4QFMAgCAbgACQgfRfgBKgYThJ8FnPOpMFiJtEEYGBgIwDYAXgZSfGVJScBmTAqASeAchEjBDG1eEQCkABfKxfK8uRaE4DZrTCiKopEpKgA"
+      ></iframe>
+    </div>
   </body>
 </html>
