@@ -22,6 +22,8 @@ Sliders can then be created and configured with simple syntax.
     max="1"
     value="0.5"
     step="0.01"
+    min-label="0"
+    max-label="0"
 ></vpde-slider>
 ``` 
 
@@ -32,15 +34,15 @@ Sample (customisable) styles can be included via ``vpde-sliders.css``.
 
 ### Properties
 | Name | Description | Default|
-|---|---|---|
+|----|----|----|
 |``iframe`` | IDs of the iframes containing simulations, separated by spaces. | N/A (required)|
 |``name`` | Name of the parameter to control. Must exactly match the name in the simulation. | N/A (required)|
 |``label`` | Label that appears before the slider element. | "" |
 |``min`` | Minimum value of the slider. | "0" |
 |``max`` | Maximum value of the slider. | "1" |
-|``min-label`` | Label showing the minimum value of the slider. | unset |
-|``max-label`` | Label showing the maximum value of the slider. | unset |
 |``value`` | Initial value of the slider, which will be set in the simulation on load. | "0.5" |
 |``step`` | Step size (increment) of the slider. | ``(max - min)/20``|
+|``min-label`` | Label showing the minimum value of the slider. | unset |
+|``max-label`` | Label showing the maximum value of the slider. | unset |
 |``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
 
