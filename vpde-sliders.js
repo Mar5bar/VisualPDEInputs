@@ -14,7 +14,9 @@ class VPDESlider extends HTMLElement {
     const elementWrapper = document.createElement("span");
     const label = elementWrapper.appendChild(document.createElement("span"));
     label.innerHTML = this.getAttribute("label") || "";
-    const sliderWrapper = elementWrapper.appendChild(document.createElement("span"));
+    const sliderWrapper = elementWrapper.appendChild(
+      document.createElement("span")
+    );
     sliderWrapper.style.setProperty("position", "relative");
 
     // Create a slider input element, set its attributes, add it to the sliderWrapper, and add an input event listener to it
@@ -28,14 +30,18 @@ class VPDESlider extends HTMLElement {
 
     // If min or max labels are provided, add them to the sliderWrapper.
     if (this.getAttribute("min-label")) {
-      const minLabel = sliderWrapper.appendChild(document.createElement("span"));
+      const minLabel = sliderWrapper.appendChild(
+        document.createElement("span")
+      );
       minLabel.innerHTML = this.getAttribute("min-label");
       minLabel.classList.add("vpde-slider-valLabel");
       minLabel.classList.add("min");
       slider.classList.add("has-labels");
     }
     if (this.getAttribute("max-label")) {
-      const maxLabel = sliderWrapper.appendChild(document.createElement("span"));
+      const maxLabel = sliderWrapper.appendChild(
+        document.createElement("span")
+      );
       maxLabel.innerHTML = this.getAttribute("max-label");
       maxLabel.classList.add("vpde-slider-valLabel");
       maxLabel.classList.add("max");
