@@ -40,4 +40,5 @@ Sample (customisable) styles can be included via ``vpde-sliders.css``.
 |``max`` | Maximum value of the slider. | "1" |
 |``value`` | Initial value of the slider, which will be set in the simulation on load. | "0.5" |
 |``step`` | Step size (increment) of the slider. | ``(max - min)/20``|
+|``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
 
