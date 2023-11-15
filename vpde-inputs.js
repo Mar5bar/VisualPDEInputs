@@ -1,19 +1,41 @@
-class VPDESlider extends HTMLElement {
+class VPDEInput extends HTMLElement {
   constructor() {
     super();
-
     // If the constructor is being called a second time (iff the element has a child), remove the child.
     if (this.childElementCount) {
-        this.children[0].remove();
+      this.children[0].remove();
     }
 
     // Get the associated iframe(s), and create a message template to send to it.
     this.attachedFrames = this.getAttribute("iframe")
       .split(" ")
       .map((frame) => document.getElementById(frame));
-    this.message = { name: this.getAttribute("name"), type: "updateParam" };
+    this.message = { name: this.getAttribute("name") };
     // Specify a custom host if one is provided, otherwise use the default.
     this.host = this.getAttribute("host") || "https://visualpde.com";
+
+    // Add an event listener to the iframe so that it gets sent the current value when loaded.
+    this.attachedFrames.forEach((frame) => {
+      frame.addEventListener("load", this.sendUpdate.bind(this));
+    });
+  }
+
+  // Send an update to the associated simulation.
+  sendUpdate() {
+    this.message.value = this.slider.value;
+    this.attachedFrames.forEach((frame) => {
+      frame.contentWindow.postMessage(this.message, this.host);
+    });
+  }
+}
+
+// Parameter sliders.
+class VPDESlider extends VPDEInput {
+  constructor() {
+    super();
+
+    // Modify the message to include the updateParam type.
+    this.message.type = "updateParam";
 
     // Create a slider and a name tag in a span.
     const wrapper = document.createElement("span");
@@ -51,13 +73,10 @@ class VPDESlider extends HTMLElement {
     slider.style.setProperty("--min", slider.min);
     slider.style.setProperty("--max", slider.max);
 
+    // Store the slider in the element.
     this.slider = slider;
 
-    // Add an event listener to the iframe so that it gets sent the current value when loaded.
-    this.attachedFrames.forEach((frame) => {
-      frame.addEventListener("load", this.sendUpdate.bind(this));
-    });
-
+    // Add the wrapper to the element.
     this.append(wrapper);
 
     // If MathJax is loaded, typeset the label.
@@ -67,16 +86,9 @@ class VPDESlider extends HTMLElement {
   }
 
   onInput() {
+    // Update the slider's value and send an update to the simulation.
     this.slider.style.setProperty("--value", this.slider.value);
     this.sendUpdate();
-  }
-
-  // Send an update to the associated simulation.
-  sendUpdate() {
-    this.message.value = this.slider.value;
-    this.attachedFrames.forEach((frame) => {
-      frame.contentWindow.postMessage(this.message, this.host);
-    });
   }
 }
 
