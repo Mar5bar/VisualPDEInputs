@@ -1,13 +1,13 @@
-# VisualPDESliders
-A tiny Javascript file that enables you to include HTML sliders that can interact directly with VisualPDE.com simulations running in iframes. Just include it in your document and away you go.
+# VisualPDEInputs
+A tiny Javascript file that enables you to include HTML elements that can interact directly with VisualPDE.com simulations running in iframes. Just include it in your document and away you go.
 
 ## Examples
-A set of examples is provided in ``index.html``, which can be explored live [here](https://mar5bar.github.io/VisualPDESliders/).
+A set of examples is provided in ``index.html``, which can be explored live [here](https://mar5bar.github.io/VisualPDEInputs/).
 
 ## Usage
-Include ``vpde-sliders.js`` or ``vpde-sliders.min.js`` in your HTML.
+Include ``vpde-inputs.js`` or ``vpde-inputs.min.js`` in your HTML.
 ```
-<script src="path/to/vpde-sliders.js" defer></script>
+<script src="path/to/vpde-inputs.js" defer></script>
 ```
 
 This defines a new ``vpde-slider`` HTML element that posts messages to VisualPDE simulations running in iframes.
@@ -27,9 +27,9 @@ Sliders can then be created and configured with simple syntax.
 ></vpde-slider>
 ``` 
 
-Sample (customisable) styles can be included via ``vpde-sliders.css``.
+Sample (customisable) styles can be included via ``vpde-inputs.css``.
 ```
-<link rel="stylesheet" href="vpde-sliders.css" />
+<link rel="stylesheet" href="vpde-inputs.css" />
 ```
 
 ### Properties
