@@ -4,15 +4,22 @@ A tiny Javascript file that enables you to include HTML elements that can intera
 ## Examples
 A set of examples is provided in ``index.html``, which can be explored live [here](https://mar5bar.github.io/VisualPDEInputs/).
 
-## Usage
+## Useage
 Include ``vpde-inputs.js`` or ``vpde-inputs.min.js`` in your HTML.
 ```
 <script src="path/to/vpde-inputs.js" defer></script>
 ```
 
-This defines a new ``vpde-slider`` HTML element that posts messages to VisualPDE simulations running in iframes.
+This defines new HTML elements: ``vpde-slider``, ``vpde-playpause``, ``vpde-reset``. Each posts messages to VisualPDE simulations running in iframes on your page.
 
-Sliders can then be created and configured with simple syntax.
+Sample (customisable) styles can be included via ``vpde-inputs.css``.
+```
+<link rel="stylesheet" href="vpde-inputs.css" />
+```
+
+### Sliders
+
+Sliders can be created and configured with simple syntax.
 ```
 <vpde-slider
     iframe="myIframe"
@@ -27,12 +34,7 @@ Sliders can then be created and configured with simple syntax.
 ></vpde-slider>
 ``` 
 
-Sample (customisable) styles can be included via ``vpde-inputs.css``.
-```
-<link rel="stylesheet" href="vpde-inputs.css" />
-```
-
-### Properties
+#### Properties
 | Name | Description | Default|
 |----|----|----|
 |``iframe`` | IDs of the iframes containing simulations, separated by spaces. | N/A (required)|
@@ -46,3 +48,27 @@ Sample (customisable) styles can be included via ``vpde-inputs.css``.
 |``max-label`` | Label showing the maximum value of the slider. | unset |
 |``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
 
+### Buttons
+
+
+
+Buttons (Play/Pause and Reset) use similar (simpler) syntax.
+```
+<vpde-reset
+    iframe="myIframe"
+></vpde-reset>
+
+<vpde-playpause
+    iframe="myIframe"
+    action="play"
+></vpde-playpause>
+``` 
+
+They are styled to match those found in VisualPDE simulations.
+
+#### Properties
+| Name | Description | Default|
+|----|----|----|
+|``iframe`` | IDs of the iframes containing simulations, separated by spaces. | N/A (required)|
+|``action`` | Initial action performed by the button. Must be one of ``"play"`` and ``"pause"``. | "play" |
+|``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
