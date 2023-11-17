@@ -7,9 +7,7 @@ class VPDEInput extends HTMLElement {
     }
 
     // Get the associated iframe(s), and create a message template to send to it.
-    this.attachedFrames = this.getAttribute("iframe")
-      .split(" ")
-      .map((frame) => document.getElementById(frame));
+    this.frameIDs = this.getAttribute("iframe").split(" ");
     this.message = {};
     // Specify a custom host if one is provided, otherwise use the default.
     this.host = this.getAttribute("host") || "https://visualpde.com";
@@ -17,8 +15,10 @@ class VPDEInput extends HTMLElement {
 
   // Send an update to the associated simulation.
   sendUpdate() {
-    this.attachedFrames.forEach((frame) => {
-      frame.contentWindow.postMessage(this.message, this.host);
+    this.frameIDs.forEach((frameID) => {
+      document
+        .getElementById(frameID)
+        ?.contentWindow.postMessage(this.message, this.host);
     });
   }
 }
@@ -80,8 +80,10 @@ class VPDESlider extends VPDEInput {
     }
 
     // Add an event listener to the iframe so that it gets sent the current value when loaded.
-    this.attachedFrames.forEach((frame) => {
-      frame.addEventListener("load", this.sendUpdate.bind(this));
+    this.frameIDs.forEach((frameID) => {
+      document
+        .getElementById(frameID)
+        ?.addEventListener("load", this.sendUpdate.bind(this));
     });
   }
 
