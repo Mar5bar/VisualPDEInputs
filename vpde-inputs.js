@@ -53,6 +53,8 @@ class VPDESlider extends VPDEInput {
     slider.setAttribute("value", this.getAttribute("value") || 0.5);
     slider.step = this.getAttribute("step") || (slider.max - slider.min) / 20;
     slider.addEventListener("input", this.onInput.bind(this));
+    // Update the message with the initial value.
+    this.message.value = slider.value;
 
     // If a max label is provided, add it to the wrapper.
     if (this.getAttribute("max-label")) {
