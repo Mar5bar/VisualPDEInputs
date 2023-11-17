@@ -48,9 +48,9 @@ class VPDESlider extends VPDEInput {
     // Create a slider input element, set its attributes, add it to the wrapper, and add an input event listener to it
     const slider = wrapper.appendChild(document.createElement("input"));
     slider.type = "range";
-    slider.setAttribute("min", this.getAttribute("min") || 0);
-    slider.setAttribute("max", this.getAttribute("max") || 1);
     slider.setAttribute("value", this.getAttribute("value") || 0.5);
+    slider.setAttribute("min", this.getAttribute("min") || this.value - 1);
+    slider.setAttribute("max", this.getAttribute("max") || this.value + 1);
     slider.step = this.getAttribute("step") || (slider.max - slider.min) / 20;
     slider.addEventListener("input", this.onInput.bind(this));
     // Update the message with the initial value.
