@@ -35,18 +35,18 @@ class VPDESlider extends VPDEInput {
     // Create a slider and a name tag in a span.
     const wrapper = document.createElement("span");
     wrapper.style.setProperty("white-space", "nowrap");
-    const label = wrapper.appendChild(document.createElement("span"));
+    const label = wrapper.appendChild(document.createElement("label"));
     label.innerHTML = this.getAttribute("label") || "";
 
     // If a min label is provided, add it to the wrapper.
     if (this.getAttribute("min-label")) {
-      const minLabel = wrapper.appendChild(document.createElement("span"));
+      const minLabel = label.appendChild(document.createElement("span"));
       minLabel.innerHTML = " " + this.getAttribute("min-label");
       minLabel.classList.add("vpde-slider-valLabel");
     }
 
     // Create a slider input element, set its attributes, add it to the wrapper, and add an input event listener to it
-    const slider = wrapper.appendChild(document.createElement("input"));
+    const slider = label.appendChild(document.createElement("input"));
     slider.type = "range";
     slider.setAttribute("value", this.getAttribute("value") || 0.5);
     slider.setAttribute("min", this.getAttribute("min") || this.value - 1);
