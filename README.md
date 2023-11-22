@@ -48,9 +48,9 @@ Sliders can be created and configured with simple syntax.
 |``max-label`` | Label showing the maximum value of the slider. | unset |
 |``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
 
+Regardless of the set `min`, `max`, and `value`, you will not be able to set parameter values outside the range enforced by the attached VisualPDE simulations.
+
 ### Buttons
-
-
 
 Buttons (Play/Pause and Reset) use similar (simpler) syntax.
 ```

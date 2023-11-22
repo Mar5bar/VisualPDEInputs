@@ -1,9 +1,9 @@
 class VPDEInput extends HTMLElement {
   constructor() {
     super();
-    // If the constructor is being called a second time (iff the element has a child), remove the child.
-    if (this.childElementCount) {
-      this.children[0].remove();
+    // If the constructor is being called a second time (iff the element has children), remove the children.
+    while (this.firstChild) {
+      this.removeChild(this.firstChild);
     }
 
     // Get the associated iframe(s), and create a message template to send to it.
@@ -48,10 +48,14 @@ class VPDESlider extends VPDEInput {
     // Create a slider input element, set its attributes, add it to the wrapper, and add an input event listener to it
     const slider = label.appendChild(document.createElement("input"));
     slider.type = "range";
-    slider.setAttribute("value", this.getAttribute("value") || 0.5);
-    slider.setAttribute("min", this.getAttribute("min") || this.value - 1);
-    slider.setAttribute("max", this.getAttribute("max") || this.value + 1);
+
+    // Set the min, max, and step of the slider first.
+    const initValue = this.getAttribute("value") || 0.5;
+    slider.min = this.getAttribute("min") || initValue - 0.5;
+    slider.max = this.getAttribute("max") || initValue + 0.5;
     slider.step = this.getAttribute("step") || (slider.max - slider.min) / 20;
+    slider.value = initValue;
+
     slider.addEventListener("input", this.onInput.bind(this));
     // Update the message with the initial value.
     this.message.value = slider.value;
