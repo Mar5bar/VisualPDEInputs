@@ -76,12 +76,13 @@
       the simulation, which changes the colour and moves the black shape across
       the domain.
     </p>
-    <p style="text-align: center;">
+    <p style="text-align: center; margin-bottom:0">
       <!-- Slider -->
       <vpde-slider
         iframe="myIframe"
         name="a"
-        label="$a$:"
+        label="$a$"
+        label-position="top"
         min="0"
         min-label="$0$"
         max="1"
@@ -103,8 +104,8 @@
     simulations that use the same parameter name.
 
     <p style="text-align:center">
-      <vpde-slider iframe="iframeA iframeB" name="a" label="$a$:"></vpde-slider>
-      <vpde-slider iframe="iframeA iframeB" name="b" label="$b$:"></vpde-slider>
+      <vpde-slider iframe="iframeA iframeB" name="a" label="$a$"></vpde-slider>
+      <vpde-slider iframe="iframeA iframeB" name="b" label="$b$"></vpde-slider>
     </p>
     <div style="width: 80%; margin: 0 auto">
       <iframe

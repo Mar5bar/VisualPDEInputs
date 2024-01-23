@@ -32,22 +32,43 @@ class VPDESlider extends VPDEInput {
     this.message.name = this.getAttribute("name");
     this.message.type = "updateParam";
 
+    // Generate a random id for the slider.
+    const id = "id" + Math.random().toString(16).slice(2);
+
     // Create a slider and a name tag in a span.
     const wrapper = document.createElement("span");
     wrapper.style.setProperty("white-space", "nowrap");
-    const label = wrapper.appendChild(document.createElement("label"));
-    label.innerHTML = this.getAttribute("label") || "";
 
     // If a min label is provided, add it to the wrapper.
     if (this.getAttribute("min-label")) {
-      const minLabel = label.appendChild(document.createElement("span"));
-      minLabel.innerHTML = " " + this.getAttribute("min-label");
+      const minLabel = wrapper.appendChild(document.createElement("span"));
+      minLabel.innerHTML = this.getAttribute("min-label");
       minLabel.classList.add("vpde-slider-valLabel");
+      minLabel.classList.add("left");
     }
 
-    // Create a slider input element, set its attributes, add it to the wrapper, and add an input event listener to it
-    const slider = label.appendChild(document.createElement("input"));
+    // Create a slider input element in a further wrapper, set its attributes, add it to the wrapper, and add an input event listener to it.
+    const inputWrapper = wrapper.appendChild(document.createElement("span"));
+    inputWrapper.style.setProperty("position", "relative");
+
+    // If a label is provided, add it to the input wrapper.
+    if (this.getAttribute("label")) {
+      const label = inputWrapper.appendChild(document.createElement("label"));
+      label.innerHTML = this.getAttribute("label");
+      label.setAttribute("for", id);
+      label.classList.add("vpde-slider-label");
+      // If a label position is provided, add it to the label. Default is below.
+      if (this.getAttribute("label-position") == "above") {
+        label.classList.add("above");
+        wrapper.style.setProperty("margin-top", "1em");
+      } else {
+        wrapper.style.setProperty("margin-bottom", "1em");
+      }
+    }
+
+    const slider = inputWrapper.appendChild(document.createElement("input"));
     slider.type = "range";
+    slider.setAttribute("id", id);
 
     // Set the min, max, and step of the slider first.
     const initValue = this.getAttribute("value") || 0.5;
@@ -60,11 +81,12 @@ class VPDESlider extends VPDEInput {
     // Update the message with the initial value.
     this.message.value = slider.value;
 
-    // If a max label is provided, add it to the wrapper.
+    // If a max label is provided, add it to the label.
     if (this.getAttribute("max-label")) {
       const maxLabel = wrapper.appendChild(document.createElement("span"));
       maxLabel.innerHTML = this.getAttribute("max-label");
       maxLabel.classList.add("vpde-slider-valLabel");
+      maxLabel.classList.add("right");
     }
 
     // Configure the slider for formatting.

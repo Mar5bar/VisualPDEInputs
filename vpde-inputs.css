@@ -14,9 +14,31 @@
   -webkit-appearance: none;
 }
 
+vpde-slider > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.vpde-slider-label {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% - 3px);
+}
+
+.vpde-slider-label.above {
+  top: unset;
+  bottom: calc(100% - 3px);
+}
+
 .vpde-slider-valLabel {
   font-size: 0.7rem;
   vertical-align: middle;
+}
+
+.vpde-slider-valLabel.left {
+  padding-left: 0.6em;
 }
 
 /*progress support*/
@@ -24,6 +46,7 @@
   --range: calc(var(--max) - var(--min));
   --ratio: calc((var(--value) - var(--min)) / var(--range));
   --sx: calc(0.5 * 2em + var(--ratio) * (100% - 2em));
+  padding: 0 0.4em;
 }
 
 .vpde-slider:focus {

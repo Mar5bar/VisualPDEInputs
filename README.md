@@ -25,6 +25,7 @@ Sliders can be created and configured with simple syntax.
     iframe="myIframe"
     name="a"
     label="$a$:"
+    label-position:"top"
     min="0"
     max="1"
     value="0.5"
@@ -40,6 +41,7 @@ Sliders can be created and configured with simple syntax.
 |``iframe`` | IDs of the iframes containing simulations, separated by spaces. | N/A (required)|
 |``name`` | Name of the parameter to control. Must exactly match the name in the simulation. | N/A (required)|
 |``label`` | Label that appears before the slider element. | "" |
+|``label-position`` | Location of the optional label ("above" or "below"). | "below" |
 |``min`` | Minimum value of the slider. | "0" |
 |``max`` | Maximum value of the slider. | "1" |
 |``value`` | Initial value of the slider, which will be set in the simulation on load. | "0.5" |
