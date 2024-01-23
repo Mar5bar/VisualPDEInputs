@@ -44,7 +44,6 @@ class VPDESlider extends VPDEInput {
       const minLabel = wrapper.appendChild(document.createElement("span"));
       minLabel.innerHTML = this.getAttribute("min-label");
       minLabel.classList.add("vpde-slider-valLabel");
-      minLabel.classList.add("left");
     }
 
     // Create a slider input element in a further wrapper, set its attributes, add it to the wrapper, and add an input event listener to it.
@@ -86,7 +85,6 @@ class VPDESlider extends VPDEInput {
       const maxLabel = wrapper.appendChild(document.createElement("span"));
       maxLabel.innerHTML = this.getAttribute("max-label");
       maxLabel.classList.add("vpde-slider-valLabel");
-      maxLabel.classList.add("right");
     }
 
     // Configure the slider for formatting.
