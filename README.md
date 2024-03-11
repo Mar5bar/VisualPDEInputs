@@ -46,6 +46,7 @@ Sliders can be created and configured with simple syntax.
 |``max`` | Maximum value of the slider. | "1" |
 |``value`` | Initial value of the slider, which will be set in the simulation on load. | "0.5" |
 |``step`` | Step size (increment) of the slider. | ``(max - min)/20``|
+|``reversed`` | Should the slider be reversed ("true" or "false"). | "false" |
 |``min-label`` | Label showing the minimum value of the slider. | unset |
 |``max-label`` | Label showing the maximum value of the slider. | unset |
 |``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|

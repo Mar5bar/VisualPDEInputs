@@ -39,11 +39,21 @@ class VPDESlider extends VPDEInput {
     const wrapper = document.createElement("span");
     wrapper.style.setProperty("white-space", "nowrap");
 
-    // If a min label is provided, add it to the wrapper.
-    if (this.getAttribute("min-label")) {
-      const minLabel = wrapper.appendChild(document.createElement("span"));
-      minLabel.innerHTML = this.getAttribute("min-label");
-      minLabel.classList.add("vpde-slider-valLabel");
+    // Assign left and right labels, depending on whether or not the slider is reversed.
+    const leftLabel =
+      this.getAttribute("reversed") == "true"
+        ? this.getAttribute("max-label")
+        : this.getAttribute("min-label");
+    const rightLabel =
+      this.getAttribute("reversed") == "true"
+        ? this.getAttribute("min-label")
+        : this.getAttribute("max-label");
+
+    // If a left label is provided, add it to the wrapper.
+    if (leftLabel) {
+      let label = wrapper.appendChild(document.createElement("span"));
+      label.innerHTML = leftLabel;
+      label.classList.add("vpde-slider-valLabel");
     }
 
     // Create a slider input element in a further wrapper, set its attributes, add it to the wrapper, and add an input event listener to it.
@@ -81,10 +91,10 @@ class VPDESlider extends VPDEInput {
     this.message.value = slider.value;
 
     // If a max label is provided, add it to the label.
-    if (this.getAttribute("max-label")) {
-      const maxLabel = wrapper.appendChild(document.createElement("span"));
-      maxLabel.innerHTML = this.getAttribute("max-label");
-      maxLabel.classList.add("vpde-slider-valLabel");
+    if (rightLabel) {
+      let label = wrapper.appendChild(document.createElement("span"));
+      label.innerHTML = rightLabel;
+      label.classList.add("vpde-slider-valLabel");
     }
 
     // Configure the slider for formatting.
@@ -93,6 +103,13 @@ class VPDESlider extends VPDEInput {
     slider.style.setProperty("--value", slider.value);
     slider.style.setProperty("--min", slider.min);
     slider.style.setProperty("--max", slider.max);
+
+    // If the slider is reversed, set the reversed property.
+    slider.style.setProperty("--reversed", 0);
+    if (this.getAttribute("reversed") == "true") {
+      slider.classList.add("reversed");
+      slider.style.setProperty("--reversed", 1);
+    }
 
     // Store the slider in the element.
     this.slider = slider;
