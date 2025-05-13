@@ -23,6 +23,77 @@ class VPDEInput extends HTMLElement {
   }
 }
 
+// Element for selecting parameter combinations.
+class VPDESelect extends VPDEInput {
+  constructor() {
+    super();
+
+    // Modify the message to include the lists of parameter name and the type of message.
+    // Split the name by semicolons.
+    this.message.displayNames = this.getAttribute("display-names").split(";");
+    this.message.paramStrs = this.getAttribute("parameters").split(";");
+    this.message.type = "updateParam";
+
+    // Create a select element and add it to the element.
+    const select = document.createElement("select");
+    select.classList.add("vpde-select");
+
+    // Set the options for the select element.
+    for (let i = 0; i < this.message.displayNames.length; i++) {
+      const option = document.createElement("option");
+      option.value = this.message.paramStrs[i];
+      option.innerHTML = this.message.displayNames[i];
+      select.appendChild(option);
+    }
+
+    // Add an event listener to the select element to send an update when the value changes.
+    select.addEventListener("change", () => {
+      // Update the message with the selected value.
+      const paramStr = select.value;
+
+      // Parse the paramStr to get a list of parameters and their values.
+      const params = paramStr.split(",");
+      const nameArray = [];
+      const valueArray = [];
+      for (let i = 0; i < params.length; i++) {
+        const param = params[i].split("=");
+        if (param.length == 2) {
+          nameArray.push(param[0].trim());
+          valueArray.push(param[1].trim());
+        } else {
+          console.error(
+            "Invalid parameter string format. Expected 'name=value'."
+          );
+        }
+      }
+      // Update the message with the name and value arrays.
+      this.message.name = nameArray;
+      this.message.value = valueArray;
+      this.sendUpdate();
+    });
+
+    // Generate a random id for the element.
+    const id = "id" + Math.random().toString(16).slice(2);
+    select.setAttribute("id", id);
+
+    this.append(select);
+    this.select = select;
+
+    // If MathJax is loaded, typeset the element.
+    if (MathJax.typesetPromise != undefined) {
+      MathJax.typesetPromise();
+    }
+
+    // Add an event listener to the iframe so that it gets sent the current value when loaded.
+    this.frameIDs.forEach((frameID) => {
+      document
+        .getElementById(frameID)
+        ?.addEventListener("load", this.sendUpdate.bind(this));
+    });
+  }
+
+}
+
 // Parameter sliders.
 class VPDESlider extends VPDEInput {
   constructor() {
@@ -215,5 +286,6 @@ class VPDEPlayPause extends VPDEButton {
 }
 
 customElements.define("vpde-slider", VPDESlider);
+customElements.define("vpde-select", VPDESelect);
 customElements.define("vpde-reset", VPDEReset);
 customElements.define("vpde-playpause", VPDEPlayPause);
