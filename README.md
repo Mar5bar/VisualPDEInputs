@@ -53,6 +53,26 @@ Sliders can be created and configured with simple syntax.
 
 Regardless of the set `min`, `max`, and `value`, you will not be able to set parameter values outside the range enforced by the attached VisualPDE simulations.
 
+### Selects
+
+Select elements (drop-down lists) can be created and configured with simple syntax. These can change multiple parameters at once to let you switch between parameter sets easily.
+```
+<vpde-select
+    iframe="myIframe"
+    display-names="Default; Something else"
+    parameters="a = 1, b = 2; a = 3, b = 4"
+></vpde-select>
+``` 
+
+#### Properties
+| Name | Description | Default|
+|----|----|----|
+|``iframe`` | IDs of the iframes containing simulations, separated by spaces. | N/A (required)|
+|``display-names`` | Display names of the parameter sets, separated by semicolons (different options). | N/A (required)|
+|``parameters`` | Names and values of the parameters to control, separated by semicolons (different options) and commas (different parameters). Parameter names must exactly match the name in the simulation. | N/A (required)|
+|``step`` | Step size (increment) of the slider. | ``(max - min)/20``|
+|``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
+
 ### Buttons
 
 Buttons (Play/Pause and Reset) use similar (simpler) syntax.
