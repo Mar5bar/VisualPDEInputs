@@ -207,6 +207,11 @@ class VPDESlider extends VPDEInput {
     this.message.value = this.slider.value;
     this.sendUpdate();
   }
+
+  setValue(value) {
+    this.slider.value = value;
+    this.onInput();
+  }
 }
 
 class VPDEButton extends VPDEInput {
