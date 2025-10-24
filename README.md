@@ -10,7 +10,7 @@ Include ``vpde-inputs.js`` or ``vpde-inputs.min.js`` in your HTML.
 <script src="path/to/vpde-inputs.js" defer></script>
 ```
 
-This defines new HTML elements: ``vpde-slider``, ``vpde-playpause``, ``vpde-reset``. Each posts messages to VisualPDE simulations running in iframes on your page.
+This defines new HTML elements: ``vpde-slider``, ``vpde-playpause``, ``vpde-reset``, and ``vpde-select``. Each posts messages to VisualPDE simulations running in iframes on your page.
 
 Sample (customisable) styles can be included via ``vpde-inputs.css``.
 ```
