@@ -70,6 +70,16 @@ class VPDESelect extends VPDEInput {
       this.message.name = nameArray;
       this.message.value = valueArray;
       this.sendUpdate();
+
+      // If the user wants to reset the simulation on selection change, do so.
+      if (this.getAttribute("reset-on-change") == "true") {
+        const resetMessage = { type: "resetSim" };
+        this.frameIDs.forEach((frameID) => {
+          document
+            .getElementById(frameID)
+            ?.contentWindow.postMessage(resetMessage, this.host);
+        });
+      }
     });
 
     // Generate a random id for the element.

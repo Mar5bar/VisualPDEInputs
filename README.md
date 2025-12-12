@@ -61,6 +61,7 @@ Select elements (drop-down lists) can be created and configured with simple synt
     iframe="myIframe"
     display-names="Default; Something else"
     parameters="a = 1, b = 2; a = 3, b = 4"
+    reset-on-change="true"
 ></vpde-select>
 ``` 
 
@@ -70,7 +71,7 @@ Select elements (drop-down lists) can be created and configured with simple synt
 |``iframe`` | IDs of the iframes containing simulations, separated by spaces. | N/A (required)|
 |``display-names`` | Display names of the parameter sets, separated by semicolons (different options). | N/A (required)|
 |``parameters`` | Names and values of the parameters to control, separated by semicolons (different options) and commas (different parameters). Parameter names must exactly match the name in the simulation. | N/A (required)|
-|``step`` | Step size (increment) of the slider. | ``(max - min)/20``|
+|``reset-on-change`` | Should the simulation be reset when the selection changes ("true" or "false"). | "false" |
 |``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
 
 ### Buttons
