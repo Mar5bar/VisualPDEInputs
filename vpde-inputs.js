@@ -62,7 +62,7 @@ class VPDESelect extends VPDEInput {
           valueArray.push(param[1].trim());
         } else {
           console.error(
-            "Invalid parameter string format. Expected 'name=value'."
+            "Invalid parameter string format. Expected 'name=value'.",
           );
         }
       }
@@ -101,7 +101,6 @@ class VPDESelect extends VPDEInput {
         ?.addEventListener("load", this.sendUpdate.bind(this));
     });
   }
-
 }
 
 // Parameter sliders.
@@ -216,6 +215,16 @@ class VPDESlider extends VPDEInput {
     this.slider.style.setProperty("--value", this.slider.value);
     this.message.value = this.slider.value;
     this.sendUpdate();
+
+    // If the user wants to reset the simulation on slider change, do so.
+    if (this.getAttribute("reset-on-change") == "true") {
+      const resetMessage = { type: "resetSim" };
+      this.frameIDs.forEach((frameID) => {
+        document
+          .getElementById(frameID)
+          ?.contentWindow.postMessage(resetMessage, this.host);
+      });
+    }
   }
 
   setValue(value) {

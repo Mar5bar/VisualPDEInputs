@@ -32,6 +32,7 @@ Sliders can be created and configured with simple syntax.
     step="0.01"
     min-label="0"
     max-label="0"
+    reset-on-change="false"
 ></vpde-slider>
 ``` 
 
@@ -49,6 +50,7 @@ Sliders can be created and configured with simple syntax.
 |``reversed`` | Should the slider be reversed ("true" or "false"). | "false" |
 |``min-label`` | Label showing the minimum value of the slider. | unset |
 |``max-label`` | Label showing the maximum value of the slider. | unset |
+|``reset-on-change`` | Should the simulation be reset when the slider changes ("true" or "false"). | "false" |
 |``host`` | Host of the VisualPDE simulation. | ``https://visualpde.com``|
 
 Regardless of the set `min`, `max`, and `value`, you will not be able to set parameter values outside the range enforced by the attached VisualPDE simulations.
