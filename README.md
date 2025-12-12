@@ -25,7 +25,7 @@ Sliders can be created and configured with simple syntax.
     iframe="myIframe"
     name="a"
     label="$a$:"
-    label-position="top"
+    label-position="above"
     min="0"
     max="1"
     value="0.5"
