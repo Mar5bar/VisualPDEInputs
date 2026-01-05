@@ -16,7 +16,7 @@ jobs:
       - name: Install terser
         run: npm install -g terser
       - name: Run terser vpde-inputs.js
-        run: terser --compress --mangle --module --output vpde-inputs.min.js -- vpde-inputs.js
+        run: terser --compress --mangle safari10 --output vpde-inputs.min.js -- vpde-inputs.js
       - name: Commit vpde-inputs.min.js
         uses: EndBug/add-and-commit@v9
         with:
